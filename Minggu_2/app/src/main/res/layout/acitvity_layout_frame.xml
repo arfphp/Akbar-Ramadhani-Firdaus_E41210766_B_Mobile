@@ -8,12 +8,14 @@
     tools:context=".FrameLayout"
     >
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:background="@color/teal_200"
         ></ImageView>
     <Button
+        android:id="@+id/btn1"
         android:layout_width="500px"
         android:layout_height="150px"
         android:layout_gravity="center"

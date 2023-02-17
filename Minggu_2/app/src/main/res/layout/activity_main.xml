@@ -210,7 +210,7 @@
             app:layout_constraintStart_toEndOf="@id/btn7"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="522dp"
-            android:layout_marginRight="130dp"
+            android:layout_marginRight="120dp"
             android:textSize="16dp"
             android:textColor="#000000"/>
         <TextView
@@ -224,7 +224,7 @@
             app:layout_constraintStart_toEndOf="@id/btn7"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="562dp"
-            android:layout_marginRight="130dp"
+            android:layout_marginRight="120dp"
             android:textSize="16dp"
             android:textColor="#000000"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

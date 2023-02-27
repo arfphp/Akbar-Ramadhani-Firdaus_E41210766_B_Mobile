@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TestIntent</string>
+    <string name="visit">Visit</string>
+</resources>

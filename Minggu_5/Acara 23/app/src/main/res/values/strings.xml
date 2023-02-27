@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">testIntent2</string>
-    <string name="who_are_you">Siapa?</string>
-    <string name="i_am">I am</string>
-    <string name="activity_kedua">Ini Activity Kedua</string>
-</resources>

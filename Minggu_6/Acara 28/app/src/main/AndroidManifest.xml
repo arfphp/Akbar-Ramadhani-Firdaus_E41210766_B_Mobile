@@ -12,6 +12,18 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateBiodata"
+            android:label="Update Biodata"
+            android:exported="false" />
+        <activity
+            android:name=".LihatBiodata"
+            android:label="Lihat Biodata"
+            android:exported="false" />
+        <activity
+            android:name=".BuatBiodata"
+            android:label="Form Biodata Baru"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -20,12 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BuatBiodata"
-            android:label="Form Biodata Baru"></activity>
-        <activity android:name=".LihatBiodata"
-            android:label="Lihat Biodata"></activity>
-        <activity android:name=".UpdateBiodata"
-            android:label="Update Biodata"></activity>
     </application>
 
 </manifest>

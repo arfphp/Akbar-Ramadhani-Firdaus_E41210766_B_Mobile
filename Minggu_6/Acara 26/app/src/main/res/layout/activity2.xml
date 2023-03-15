@@ -28,7 +28,7 @@
         android:layout_above="@+id/button5"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:onClick="getPuclic"
+        android:onClick="getPublic"
         android:text="show public data"></Button>
     <Button
         android:id="@+id/button2"

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        Men-set Status dan User yang sedang login menjadi default atau kosong di
 //        Data Preferences. Kemudian menuju ke LoginActivity
-        findViewById(R.id.buttonlogoutMain).setOnClickListener((v -> {
+        findViewById(R.id.button_logoutMain).setOnClickListener((v -> {
 //            Menghapus Status login dan kembali ke Login Activity
             Preferences.clearLoggedInUser(getBaseContext());
             startActivity(new Intent(getBaseContext(), LoginActivity.class));

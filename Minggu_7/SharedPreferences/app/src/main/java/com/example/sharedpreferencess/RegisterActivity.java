@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.content.Intent;
 
 public class
 
@@ -32,6 +33,8 @@ RegisterActivity extends AppCompatActivity {
                 editor.putString("pass", pass.getText().toString());
                 editor.commit();
                 editor.apply();
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

@@ -95,7 +95,9 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(new Intent(getBaseContext(), MainActivity.class));
         finish();
     }
-//    True jika Parameter user sama dengan data user yang terdaftar dari Preferences
+//    memeriksa apakah suatu nilai "user" sama dengan nilai "username" yang tersimpan di dalam SharedPreferences.
+//    Jika nilai "username" yang tersimpan sama dengan nilai "user" yang diberikan, maka metode akan mengembalikan nilai true.
+//    Jika tidak, maka metode akan mengembalikan nilai false.
     private Boolean cekUser(String user){
         SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
         if(sp.getString("username", "").equals(user)){
@@ -103,7 +105,9 @@ public class LoginActivity extends AppCompatActivity {
         }
         return false;
     }
-//    True jika parameter password sama dengan data password yang terdaftar dari Preferences
+//    memeriksa apakah suatu nilai "password" sama dengan nilai "pass" yang tersimpan di dalam SharedPreferences.
+//    Jika nilai "pass" yang tersimpan sama dengan nilai "password" yang diberikan, maka metode akan mengembalikan nilai true.
+//    Jika tidak, maka metode akan mengembalikan nilai false.
     private Boolean cekPassword(String password){
         SharedPreferences sp = getSharedPreferences("daftar", Context.MODE_PRIVATE);
         if(sp.getString("pass", "").equals(password)){

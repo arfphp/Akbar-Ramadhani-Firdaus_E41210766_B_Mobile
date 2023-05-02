@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestSensor"
         tools:targetApi="31">
+        <activity android:name=".AllSensorActivity"
+            android:exported="false"></activity>
+        <activity android:name=".ProximitySensorActivity"
+            android:exported="false"></activity>
+        <activity android:name=".LightSensorActivity"
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,16 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider
-            android:authorities="${applicationId}.fileprovider"
-            android:name="androidx.core.content.FileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="androidx.core.content.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"
-                ></meta-data>
-        </provider>
+<!--        <provider-->
+<!--            android:authorities="${applicationId}.fileprovider"-->
+<!--            android:name="androidx.core.content.FileProvider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="androidx.core.content.FILE_PROVIDER_PATHS"-->
+<!--                ></meta-data>-->
+<!--        </provider>-->
     </application>
 <uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
 </manifest>

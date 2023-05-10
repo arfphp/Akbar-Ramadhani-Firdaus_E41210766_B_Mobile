@@ -26,16 +26,16 @@ public class JsonAPIActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private ListView lv;
 
-    private static String url = "https://api.androidhive.info/contacts/";
+    private static String url = "https://jsonplaceholder.typicode.com/users";
 
-    ArrayList<HashMap<String, String >> contactList;
+    ArrayList<HashMap<String, String >> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_json_apiactivity);
 
-        contactList = new ArrayList<>();
+        userList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.user_list);
 
         new GetContacts().execute();
@@ -54,50 +54,48 @@ public class JsonAPIActivity extends AppCompatActivity {
         }
 
         @Override
-        protected Void doInBackground(Void... arg0){
+        protected Void doInBackground(Void... arg0) {
             HttpHandle sh = new HttpHandle();
 
+            // Making a request to url and getting response
             String jsonStr = sh.makeServiceCall(url);
 
             Log.e(TAG, "Response from url: " + jsonStr);
 
-            if(jsonStr != null){
+            if (jsonStr != null) {
                 try {
-                    JSONObject jsonObj = new JSONObject(jsonStr);
+                    JSONArray users = new JSONArray(jsonStr);
 
-                    JSONArray contacts = jsonObj.getJSONArray("contacts");
-
-                    for (int i=0; i< contacts.length(); i++){
-                        JSONObject c = contacts.getJSONObject(i);
+                    // looping through all users
+                    for (int i = 0; i < users.length(); i++) {
+                        JSONObject c = users.getJSONObject(i);
 
                         String id = c.getString("id");
                         String name = c.getString("name");
                         String email = c.getString("email");
-                        String addres = c.getString("address");
-                        String gender = c.getString("gender");
+                        String phone = c.getString("phone");
 
-                        JSONObject phone = c.getJSONObject("phone");
-                        String mobile = phone.getString("mobile");
-                        String home = phone.getString("home");
-                        String office = phone.getString("office");
+                        // tmp hash map for single contact
+                        HashMap<String, String> user = new HashMap<>();
 
-                        HashMap<String, String> contact = new HashMap<>();
+                        // adding each child node to HashMap key => value
+                        user.put("id", id);
+                        user.put("name", name);
+                        user.put("email", email);
+                        user.put("phone", phone);
 
-                        contact.put("id", id);
-                        contact.put("name", name);
-                        contact.put("email", email);
-                        contact.put("mobile", mobile);
-
-                        contactList.add(contact);
+                        // adding user to user list
+                        userList.add(user);
                     }
-                } catch (final JSONException e){
-                    Log.e(TAG, "JSON parsing error: "+e.getMessage());
-
+                } catch (final JSONException e) {
+                    Log.e(TAG, "Json parsing error: " + e.getMessage());
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "Json parsing error: " +e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),
+                                            "Json parsing error: " + e.getMessage(),
+                                            Toast.LENGTH_LONG)
+                                    .show();
                         }
                     });
                 }
@@ -122,8 +120,8 @@ public class JsonAPIActivity extends AppCompatActivity {
 
 
             ListAdapter adapter = new SimpleAdapter(
-                    JsonAPIActivity.this, contactList,
-                    R.layout.list_item, new String[]{"name" , "email", "mobile"},
+                    JsonAPIActivity.this, userList,
+                    R.layout.list_item, new String[]{"name", "email", "phone"},
                     new int[]{R.id.name, R.id.email, R.id.mobile}
             );
             lv.setAdapter(adapter);
